@@ -1,0 +1,6 @@
+<div *ngIf = "this.currentEmployee !== undefined">
+    <p>{{'Id: ' + this.currentEmployee.id}}</p>
+    <p>{{'Name: ' + this.currentEmployee.name}}</p>
+    <p>{{this.currentEmployee.gender ? 'Male' : 'Female'}}</p>
+    <p>{{'Job Role: ' + this.currentEmployee.role}}</p>
+</div>
