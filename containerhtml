@@ -1,0 +1,3 @@
+<app-employee-listing (clickedEmployee)="setSelectedEmployee($event)"></app-employee-listing>
+<hr>
+<app-employee-details [currentEmployee]="this.selectedEmployee"></app-employee-details>
