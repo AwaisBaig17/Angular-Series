@@ -1,0 +1,18 @@
+<!--
+<p>child works!</p>
+<h3>Tasks is: <b>{{objData.titleData}}</b></h3>
+<h3>Description is: <b>{{objData.descriptionData}}</b></h3> 
+-->
+
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let list of myArray">
+        <td *ngIf="list.title!==''">{{list.title}}</td>
+        <td *ngIf="list.description!==''">{{list.description}}</td>
+    </tbody>
+</table>

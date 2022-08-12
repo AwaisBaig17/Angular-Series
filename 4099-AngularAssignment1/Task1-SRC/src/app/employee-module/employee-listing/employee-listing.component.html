@@ -1,0 +1,5 @@
+<!--This code basically iterates the list of object to display and when clicked on certain row it will return object "employee" that will be catched in ts file of it-->
+<div *ngFor = "let employee of employees"
+style="display: flex; justify-content: center; align-items: center; background-color: beige; font-size: large; font-weight: bolder;">
+<p style="cursor: pointer;" (click)="onEmployeeClick(employee)"> {{employee.name}} </p>
+</div>
