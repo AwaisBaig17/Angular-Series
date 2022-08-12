@@ -1,7 +1,0 @@
-export class Employee {
-   public id: any;
-   public name: string ="";
-   public gender: boolean = false;
-   public role: string="";
-}
-
