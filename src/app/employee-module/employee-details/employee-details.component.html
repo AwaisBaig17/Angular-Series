@@ -1,0 +1,10 @@
+<!--Displays the description of Employee as per the "this.selectedEmployee"-->
+<div style="display: flex; justify-content: center; align-items: center;">
+    <button class="btn btn-outline-success"  (click)="NextEmployee(this.currentEmployee!)" > Next </button>
+    <button class="btn btn-outline-info" style="margin-left: 20px;" (click)="PreviousEmployee(this.currentEmployee!)" >Previous</button>
+</div> 
+<div style="background-color: azure; margin: 20px; font-size:xx-large; font-weight:bold;" *ngIf = "this.currentEmployee !== undefined">
+    <p>{{'Id: ' + this.currentEmployee.id}}</p>
+    <p>{{'Name: ' + this.currentEmployee.name}}</p>
+    <p>{{'Job Role: ' + this.currentEmployee.role}}</p>
+</div>

@@ -1,0 +1,101 @@
+<div style="text-align:center; margin-right: 100px; margin-left: 100px;">
+  <nav class="navbar navbar-dark bg-dark" style="margin-bottom:20px; ">
+    <div class="container-fluid">
+        <h3 style="color:palegoldenrod">To Add Employee Click -----------></h3>
+        <div class="d-flex">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                Add Employee
+            </button>
+        </div>
+    </div>
+  </nav>
+</div>
+
+<!--This code basically iterates the list of object to display and when clicked on certain row it will return object "employee" that will be catched in ts file of it-->
+<div 
+style="display: flex; justify-content: center; align-items: center; background-color: beige; font-size: large; font-weight: bolder;">
+  <table class="table table-striped table-bordered table-dark" style="width: 70%;">
+    <thead>
+      <tr>
+        <th scope="col-4">Employee Name</th>
+        <th scope="col-4">Edit Employee</th>
+        <th scope="col-4">Delete Employee</th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let employee of employees1 let i = index">
+      <tr>
+        <td style="cursor: pointer;" (click)="onEmployeeClick(employee)">{{employee.name}} </td>
+        <td><button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#ListModal" (click)="editEmployee(employee)">Edit Employee</button></td>
+        <td><button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(employee)">Delete Employee</button></td>
+      </tr>
+    </tbody>
+  </table>
+<!-- <p style="cursor: pointer;" (click)="onEmployeeClick(employee)"> {{employee.name}} </p> -->
+</div>
+
+<!-- Modal for adding employee -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enter Employee Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div style="text-align:center; color: rebeccapurple; font-weight: bold;"><p>Enter valid enteries to add an employee!</p></div>
+            <div class="modal-body" >
+               <form *ngIf="employeeForm!==null" [formGroup]="employeeForm">
+                <div class="form-group">
+                  <label for="inputName">Name</label>
+                  <input type="text" class="form-control" formControlName="name" id="inputName" placeholder="Enter Employee Name">
+                </div>
+                <div class="form-group">
+                  <label for="inputRole">Job Role</label>
+                  <input type="text" class="form-control" formControlName="role" id="inputRole" placeholder="Enter Employee Role">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addEmployee()" [disabled] = "!employeeForm.valid">Add Employee</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for updating Employee -->
+<div class="modal fade" id="ListModal" tabindex="-1" role="dialog" aria-labelledby="ListModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ListModalLabel">Update Employee Details</h5>
+                <p></p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+               <form *ngIf="myForm!==null" [formGroup]="myForm">
+                <div class="form-group">
+                  <label for="inputName">Name</label>
+                  <input type="text" class="form-control" formControlName="name" id="inputName" placeholder="Enter Employee Name">
+                </div>
+                <div class="form-group">
+                  <label for="inputRole">Job Role</label>
+                  <input type="text" class="form-control" formControlName="role" id="inputRole" placeholder="Enter Employee Role">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel1" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateEmployee()" [disabled] = "!myForm.valid">Update Employee</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>{{employee1 | json}}</h1>

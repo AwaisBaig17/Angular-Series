@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <h1 style="color: plum">Angular CRUD</h1>
+    </div>
+</nav>
+
+<!--
+    <input type="text" id="name" placeholder="Employee Name" formControlName="name">
+    <input type="text" id="role" placeholder="Employee Role" formControlName="role">
+    -->
+<h1 style="text-align: center;background-color: gray; color:aliceblue; margin: 20px; font-size: xx-large;"> List of
+    Employee</h1>
+<app-employee-listing (clickedEmployee)="setSelectedEmployee($event)"></app-employee-listing>
+<!--For getting the List of Employee from child we are using Event Binding-->
+<hr>
+<h2 style="text-align: center; background-color: gray; color:aliceblue; margin: 20px; font-size: xx-large;">Description
+    of Employee</h2>
+<app-employee-details [currentEmployee]="this.selectedEmployee"></app-employee-details>
+<!--For displaying the details of clicked Employee we are using property binding -->
